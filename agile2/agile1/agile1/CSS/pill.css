@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    color: #4CAF50;
+    font-size: 2em;
+}
+
+.medication-group {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #e7f5e1;
+}
+
+.medication-group h3 {
+    margin: 0;
+    color: #333;
+}
+
+.medication-item {
+    margin: 10px 0;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.medication-item input[type="text"], 
+.medication-item input[type="time"] {
+    border: none;
+    background: none;
+    font-size: 1em;
+    width: 100%;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.timer {
+    font-size: 2em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.edit-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.add-group, .add-medication, .delete-group, .stop-alarm, .home-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.add-group:hover, .add-medication:hover, .delete-group:hover, .stop-alarm:hover, .home-button:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .timer {
+        font-size: 1.5em;
+    }
+
+    .container {
+        padding: 15px;
+    }
+}

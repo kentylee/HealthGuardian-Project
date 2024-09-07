@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Guardian - Medication Reminder</title>
+    <link rel="stylesheet" href="CSS/pill.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Health Guardian</h1>
+        <div id="medication-groups"></div>
+        <button class="add-group">Add Medication Group</button>
+        <a href="index.html">
+            <button class="home-button">Home</button>
+        </a>
+    </div>
+
+    <audio id="alarm-sound" src="Audio\ringtone-126505.mp3" preload="auto"></audio>
+
+    <script>
+        let medicationGroups = [];
+        let alarmTimeout;
+        let alarmSound = document.getElementById('alarm-sound');
+        let alarmActive = false;
+
+        function startTimer(groupIndex, display) {
+            function updateTimer() {
+                const group = medicationGroups[groupIndex];
+                const remainingTime = calculateRemainingTime(group.time);
+                
+                if (remainingTime >= 1) {
+                    const hours = Math.floor(remainingTime / 3600);
+                    const minutes = Math.floor((remainingTime % 3600) / 60);
+                    const seconds = Math.floor(remainingTime % 60);
+                    display.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                } else {
+                    if (!alarmActive) {
+                        display.textContent = "Time to take your medication!";
+                        playAlarm();
+                    }
+                }
+            }
+            setInterval(updateTimer, 1000);
+        }
+
+        function calculateRemainingTime(time) {
+            const now = new Date();
+            const [hours, minutes] = time.split(':');
+            const medicationTime = new Date();
+            medicationTime.setHours(hours, minutes, 0, 0);
+
+            let difference = (medicationTime - now) / 1000; // in seconds
+            if (difference < 0) difference += 86400; // if time has passed, count till next day
+            return difference;
+        }
+
+        function playAlarm() {
+            console.log("Alarm triggered!");
+            alarmActive = true;
+            alarmSound.play().catch(error => {
+                console.error("Playback failed:", error);
+            });
+            alarmTimeout = setTimeout(stopAlarm, 30000); // Stop after 30 seconds
+
+            const stopButton = document.createElement('button');
+            stopButton.classList.add('stop-alarm');
+            stopButton.textContent = 'Stop Alarm';
+            stopButton.addEventListener('click', stopAlarm);
+            document.querySelector('.container').appendChild(stopButton);
+        }
+
+        function stopAlarm() {
+            console.log("Alarm stopped!");
+            alarmActive = false;
+            alarmSound.pause();
+            alarmSound.currentTime = 0;
+            clearTimeout(alarmTimeout);
+
+            const stopButton = document.querySelector('.stop-alarm');
+            if (stopButton) stopButton.remove();
+        }
+
+        function addMedicationGroup() {
+            const group = {
+                id: Date.now(),
+                name: `Group ${medicationGroups.length + 1}`,
+                medications: [],
+                time: '00:00'
+            };
+            medicationGroups.push(group);
+            renderGroups();
+        }
+
+        function addMedication(groupIndex) {
+            medicationGroups[groupIndex].medications.push({
+                id: Date.now(),
+                name: `Medication ${medicationGroups[groupIndex].medications.length + 1}`
+            });
+            renderGroups();
+        }
+
+        function deleteGroup(groupIndex) {
+            medicationGroups.splice(groupIndex, 1);
+            renderGroups();
+        }
+
+        function updateGroupTime(groupIndex, value) {
+            medicationGroups[groupIndex].time = value;
+            renderGroups();
+        }
+
+        function updateMedicationName(groupIndex, medIndex, value) {
+            medicationGroups[groupIndex].medications[medIndex].name = value;
+        }
+
+        function renderGroups() {
+            const groupsContainer = document.getElementById('medication-groups');
+            groupsContainer.innerHTML = '';
+            medicationGroups.forEach((group, groupIndex) => {
+                const groupElement = document.createElement('div');
+                groupElement.classList.add('medication-group');
+
+                const groupTitle = document.createElement('h3');
+                groupTitle.textContent = group.name;
+                groupElement.appendChild(groupTitle);
+
+                const timeInput = document.createElement('input');
+                timeInput.type = 'time';
+                timeInput.value = group.time;
+                timeInput.addEventListener('input', (e) => updateGroupTime(groupIndex, e.target.value));
+                groupElement.appendChild(timeInput);
+
+                const timerDisplay = document.createElement('div');
+                timerDisplay.classList.add('timer');
+                timerDisplay.id = `timer-${group.id}`;
+                groupElement.appendChild(timerDisplay);
+                startTimer(groupIndex, timerDisplay);
+
+                group.medications.forEach((medication, medIndex) => {
+                    const medElement = document.createElement('div');
+                    medElement.classList.add('medication-item');
+
+                    const medNameInput = document.createElement('input');
+                    medNameInput.type = 'text';
+                    medNameInput.value = medication.name;
+                    medNameInput.addEventListener('input', (e) => updateMedicationName(groupIndex, medIndex, e.target.value));
+                    medElement.appendChild(medNameInput);
+
+                    groupElement.appendChild(medElement);
+                });
+
+                const editButtons = document.createElement('div');
+                editButtons.classList.add('edit-buttons');
+
+                const addMedButton = document.createElement('button');
+                addMedButton.classList.add('add-medication');
+                addMedButton.textContent = 'Add Medication';
+                addMedButton.addEventListener('click', () => addMedication(groupIndex));
+                editButtons.appendChild(addMedButton);
+
+                const deleteGroupButton = document.createElement('button');
+                deleteGroupButton.classList.add('delete-group');
+                deleteGroupButton.textContent = 'Delete Group';
+                deleteGroupButton.addEventListener('click', () => deleteGroup(groupIndex));
+                editButtons.appendChild(deleteGroupButton);
+
+                groupElement.appendChild(editButtons);
+                groupsContainer.appendChild(groupElement);
+            });
+        }
+
+        document.querySelector('.add-group').addEventListener('click', addMedicationGroup);
+
+        // Initialize with one group for demonstration
+        addMedicationGroup();
+    </script>
+</body>
+</html>

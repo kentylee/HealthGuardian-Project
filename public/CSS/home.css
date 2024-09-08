@@ -1,0 +1,149 @@
+/* General Body Styling */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #FAFAFA;
+  color: #262626;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 10px 20px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links a {
+  color: #262626;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #8E8E8E;
+}
+
+/* Logo Styling */
+.logo img {
+  height: 40px;
+  margin-left: 20px; /* Adds space on the left side of the logo */
+}
+
+
+.navbar input[type="text"] {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #dbdbdb;
+  background-color: #FAFAFA;
+}
+
+/* Main Section Styling */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh; /* Adjust to fill the screen */
+  text-align: center;
+  margin-top: 50px;
+}
+
+.heading h1 {
+  font-size: 2.5em;
+  color: #262626;
+  margin-bottom: 20px;
+}
+
+.main-button {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.main-button:hover {
+  opacity: 0.9;
+}
+
+/* Info Section */
+.info-section {
+  width: 80%;
+  margin-top: 30px;
+}
+
+.info-section h2 {
+  color: #262626;
+  font-size: 2em;
+}
+
+.info-section p {
+  font-size: 1.1em;
+  color: #8E8E8E;
+  margin-bottom: 20px;
+}
+
+.info-button {
+  background: #3897f0;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+.info-button:hover {
+  opacity: 0.9;
+}
+
+/* Footer Styling */
+footer {
+  background-color: white;
+  padding: 20px;
+  color: #8E8E8E;
+  border-top: 1px solid #dbdbdb;
+}
+
+.footer-content h1 {
+  font-size: 24px;
+  color: #262626;
+}
+
+.footer-content p {
+  font-size: 16px;
+}
+
+.social-icons ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.social-icons ul li {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.social-icons ul li a {
+  color: #262626;
+  text-decoration: none;
+}
+
+footer small {
+  display: block;
+  margin-top: 10px;
+  color: #8E8E8E;
+}

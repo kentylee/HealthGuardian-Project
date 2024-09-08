@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hospitals - Health Guardian</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FAFAFA;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            margin-left: 20px;
+            color: #262626;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .navbar a:hover {
+            color: #3897f0;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: white;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #262626;
+        }
+
+        /* Hospital Cards */
+        .hospital-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            padding: 20px;
+        }
+
+        .card {
+            width: 18rem;
+            margin: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-body h5 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #262626;
+        }
+
+        .card-body p {
+            font-size: 1rem;
+            color: #8E8E8E;
+        }
+
+        .card-body a {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            color: #3897f0;
+        }
+
+        .card iframe {
+            height: 250px;
+            width: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #8E8E8E;
+            border-top: 1px solid #dbdbdb;
+        }
+
+        /* Button Styles */
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .nav-buttons a {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 16px;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: opacity 0.3s;
+        }
+
+        .nav-buttons a:hover {
+            opacity: 0.9;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Images/website_logo.png" alt="Health Guardian Logo" height="40">
+        </div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="pill.html">Pill Reminders</a>
+            <a href="emergency.html">Emergency Info</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="header">
+        <h1>Our Partner Hospitals and Clinics</h1>
+    </div>
+
+    <!-- Navigation Buttons for Other Pages -->
+    <div class="nav-buttons">
+        <a href="index.html">Go to Home</a>
+        <a href="pill.html">Pill Reminders</a>
+        <a href="emergency.html">Emergency Info</a>
+    </div>
+
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="hospital-container">
+
+        <div class="card">
+            <img src="images/AMKTHW.png" class="card-img-top" alt="image not found">
+            <div class="card-body">
+              <h5 class="card-title">Ang Mo Kio Thye Hua Kwan Hospital</h5>
+              <p class="card-text">
+                <a href="map.html?lat=1.38396&lang=103.84020" class="btn btn-outline-primary">17 Ang Mo Kio Ave 9, Singapore 569766</a>
+              <br>
+              <a href="tel:+6564538033" class="btn btn-outline-primary">Call</a>
+              <br>
+              <a href="mailto:feedback.amkh.org.sg" class="btn btn-outline-primary">Send Email</a>
+              </p>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d127636.93784547824!2d103.75784382612304!3d1.3840458691903308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x31da16bf3e25e875%3A0xa74a45e8bbbe97c5!2s17%20Ang%20Mo%20Kio%20Ave%209%2C%20Thye%20Hua%20Kwan%20Hospital%2C%20Singapore%20569766!3m2!1d1.3840473!2d103.84024579999999!5e0!3m2!1sen!2ssg!4v1725473250278!5m2!1sen!2ssg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="images/clementi.png" class="card-img-top" alt="image not found">
+            <div class="card-body">
+                <h5 class="card-title">Clementi Polyclinic</h5>
+                <p class="card-text">
+                <a href="map.html?lat=1.31275&lang=103.76580" class="btn btn-outline-primary">Blk 451 Clementi Avenue 3, #02-307 Singapore 120451</a>
+                <br>
+                <a href="tel:+6569082222" class="btn btn-outline-primary">Call</a>
+                </p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m19!1m8!1m3!1d7977.542103020664!2d103.7657387!3d1.3128033!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x31da1a8dd987c505%3A0x2e05551fede30b74!2sClementi%20Polyclinic%20451%20Clementi%20Ave%203%20%2302-307%20Singapore%20120451!3m2!1d1.3128033!2d103.7657387!5e0!3m2!1sen!2ssg!4v1725474179390!5m2!1sen!2ssg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="images/jurong.png" class="card-img-top" alt="image not found">
+            <div class="card-body">
+              <h5 class="card-title">Jurong Polyclinic</h5>
+              <p class="card-text">
+              <a href="map.html?lat=1.34974&lang=103.73072" class="btn btn-outline-primary">190 Jurong East Avenue 1 Singapore 609788</a>
+              <br>
+              <a href="tel:+6569082222" class="btn btn-outline-primary">Call</a>
+              </p>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m19!1m8!1m3!1d7977.4224167904795!2d103.730619!3d1.3497921!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x31da1020c6c68b21%3A0x2ee4c37bf7aeb33a!2sJurong%20Polyclinic%20190%20Jurong%20East%20Ave%201%20Singapore%20609788!3m2!1d1.3497921!2d103.73061899999999!5e0!3m2!1sen!2ssg!4v1725475969814!5m2!1sen!2ssg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="images/queenstown.png" class="card-img-top" alt="image not found">
+            <div class="card-body">
+              <h5 class="card-title">Queenstown Polyclinic</h5>
+              <p class="card-text">
+              <a href="map.html?lat=1.29846&lang=103.80108" class="btn btn-outline-primary">580 Stirling Road Singapore 148958</a>
+              <br>
+              <a href="tel:+6569082222" class="btn btn-outline-primary">Call</a>
+              </p>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m19!1m8!1m3!1d7977.587555575544!2d103.8010202!3d1.2984803!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x31da1a3a0557b45d%3A0x7bc1a992cb55c71f!2sQueenstown%20Polyclinic%20580%20Stirling%20Rd%20Singapore%20148958!3m2!1d1.2984803!2d103.8010202!5e0!3m2!1sen!2ssg!4v1725477729206!5m2!1sen!2ssg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="images/pioneer.png" class="card-img-top" alt="image not found">
+            <div class="card-body">
+              <h5 class="card-title">Pioneer Polyclinic</h5>
+              <p class="card-text">
+              <a href="map.html?lat=1.33854&lang=103.69886" class="btn btn-outline-primary">26 Jurong West Street 61 Singapore 648201</a>
+              <br>
+              <a href="tel:+6569082222" class="btn btn-outline-primary">Call</a>
+              </p>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m19!1m8!1m3!1d7977.459022691679!2d103.6990153!3d1.3385876!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x31da0f8e1c2c4d83%3A0xfc0a604bb4b7f7b8!2sPioneer%20Polyclinic%2026%20Jurong%20West%20Street%2061%20Singapore%20648201!3m2!1d1.3385875999999999!2d103.6990153!5e0!3m2!1sen!2ssg!4v1725477932885!5m2!1sen!2ssg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="images/bukitbatok.png" class="card-img-top" alt="image not found">
+            <div class="card-body">
+              <h5 class="card-title">Bukit Batok Polyclinic</h5>
+              <p class="card-text">
+              <a href="map.html?lat=1.35200&lang=103.74774" class="btn btn-outline-primary">50 Bukit Batok West Avenue 3 Singapore 659164</a>
+              <br>
+              <a href="tel:+6569082222" class="btn btn-outline-primary">Call</a>
+              </p>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m19!1m8!1m3!1d7977.415262408396!2d103.7479248!3d1.3519711!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x31da10395b8ff64d%3A0x3eda9480ecb1b51c!2sBukit%20Batok%20Polyclinic%2050%20Bukit%20Batok%20West%20Ave%203%20Singapore%20659164!3m2!1d1.3519710999999999!2d103.74792479999999!5e0!3m2!1sen!2ssg!4v1725478756545!5m2!1sen!2ssg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="images/bukitpanjang.png" class="card-img-top" alt="image not found">
+            <div class="card-body">
+              <h5 class="card-title">Bukit Panjang Polyclinic</h5>
+              <p class="card-text">
+              <a href="map.html?lat=1.38266&lang=103.76008" class="btn btn-outline-primary">50 Woodlands Road, #03-02 Singapore 677726</a>
+              <br>
+              <a href="tel:+6569082222" class="btn btn-outline-primary">Call</a>
+              </p>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m19!1m8!1m3!1d7977.312039798271!2d103.7598355!3d1.3830275!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x31da11fad8148ccd%3A0x5b125924a6d23a0!2sBukit%20Panjang%20Polyclinic%2050%20Woodlands%20Rd%20%2303-02%20Singapore%20677726!3m2!1d1.3830274999999999!2d103.7598355!5e0!3m2!1sen!2ssg!4v1725479306270!5m2!1sen!2ssg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="images/choachukang.png" class="card-img-top" alt="image not found">
+            <div class="card-body">
+              <h5 class="card-title">Choa Chu Kang Polyclinic</h5>
+              <p class="card-text">
+              <a href="map.html?lat=1.38237&lang=103.75077" class="btn btn-outline-primary">2 Teck Whye Crescent Singapore 688846</a>
+              <br>
+              <a href="tel:+6569082222" class="btn btn-outline-primary">Call</a>
+              </p>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m19!1m8!1m3!1d7977.314854159363!2d103.7509283!3d1.38219!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x31da11bf8db1565b%3A0x3dc28fc95590aa60!2sChoa%20Chu%20Kang%20Polyclinic%20(NUP)%202%20Teck%20Whye%20Cres%20Singapore%20688846!3m2!1d1.3821303999999999!2d103.751049!5e0!3m2!1sen!2ssg!4v1725479574725!5m2!1sen!2ssg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+    </div>
+    
+    <footer>
+      &copy; Health Guardian 2024
+  </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

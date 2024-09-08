@@ -1,0 +1,131 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #FAFAFA;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #262626;
+    font-size: 16px;
+}
+
+.nav-links .active {
+    color: #3897f0;
+}
+
+.nav-links a:hover {
+    color: #8E8E8E;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+}
+
+.medication-group {
+    background-color: #f8f9fa;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.medication-group h3 {
+    margin: 0;
+    padding-bottom: 5px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.medication-group input[type="text"], .medication-group input[type="time"] {
+    width: 80%;
+    padding: 6px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.medication-group .timer {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    color: #d9534f;
+}
+
+.edit-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.add-medication, .delete-group, .rename-group, .add-group, .home-button, .stop-alarm {
+    background-color: #3897f0;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.add-medication:hover, .delete-group:hover, .rename-group:hover, .add-group:hover, .home-button:hover, .stop-alarm:hover {
+    background-color: #3079b5;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #f1f1f1;
+    font-size: 14px;
+    color: #555;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        width: 100%;
+    }
+
+    .medication-group input[type="text"], .medication-group input[type="time"] {
+        width: 100%;
+    }
+
+    .edit-buttons {
+        flex-direction: column;
+    }
+
+    .edit-buttons button {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+}

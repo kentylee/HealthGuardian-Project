@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Guardian | Home</title>
+    <link rel="stylesheet" href="CSS/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4181575bab.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FAFAFA;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #262626;
+            font-size: 16px;
+        }
+
+        .nav-links .active {
+            color: #3897f0;
+        }
+
+        .nav-links a:hover {
+            color: #8E8E8E;
+        }
+
+        .main-container {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .main-container h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        .main-button, .info-button {
+            background-color: #3897f0;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .main-button:hover, .info-button:hover {
+            background-color: #3079b5;
+        }
+
+        .info-section {
+            margin-top: 50px;
+            text-align: left;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .info-section h2 {
+            font-size: 1.75em;
+            color: #333;
+        }
+
+        .info-section p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        footer {
+            background-color: white;
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #dbdbdb;
+        }
+
+        footer h1 {
+            font-size: 1.5em;
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .social-icons ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .social-icons ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        .social-icons ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .social-icons ul li a:hover {
+            color: #3897f0;
+        }
+
+        small {
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Images/website_logo.png" alt="Health Guardian Logo">
+        </div>
+        <div class="nav-links">
+            <a href="emergency.html">Useful Info</a>
+            <a href="pill.html">Reminders</a>
+            <a class="active" href="index.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="signup.html">Sign Up</a>
+        </div>
+        <input type="text" placeholder="Search...">
+    </nav>
+
+    <!-- Main Section -->
+    <div class="main-container">
+        <div class="heading">
+            <h1>Welcome to Health Guardian!</h1>
+            <a href="map.html">
+                <button class="main-button">Book an Appointment</button>
+            </a>
+        </div>
+
+        <div class="info-section">
+            <h2>Why Choose Us?</h2>
+            <p>Book and plan your medical appointments with ease.</p>
+            <p>Partnering with 100+ hospitals and clinics to meet your healthcare needs.</p>
+            <a href="hospitals.html">
+                <button class="info-button">View Locations</button>
+            </a>
+            <p>Live GPS tracking of ambulances available for emergencies.</p>
+            <a href="pill.html">
+                <button class="info-button">My Reminders</button>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h1>Contact Us</h1>
+            <p>Phone: 65006565</p>
+            <p>Email: healthguardian@gmail.com</p>
+            <div class="social-icons">
+                <ul>
+                    <li><a href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-2x"></i></a></li>
+                    <li><a href="https://twitter.com/"><i class="fa-brands fa-twitter fa-2x"></i></a></li>
+                    <li><a href="https://www.instagram.com/"><i class="fa-brands fa-instagram fa-2x"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <small>&copy; HealthGuardian 2024</small>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+Step-by-Step Instructions: Health Guardian Setup
+1. Install Prerequisites
+Make sure you have the following installed:
+
+Node.js (version 14.x or higher)
+npm (Node Package Manager)
+Verify installation by running:
+
+bash
+Copy code
+node -v
+npm -v
+
+2. Clone the Repository
+Clone the project and navigate to the project directory:
+
+bash
+Copy code
+git clone https://github.com/your-username/health-guardian.git
+cd health-guardian
+3. Install Dependencies
+Install the required dependencies:
+
+bash
+Copy code
+npm install
+This will install the following:
+
+express: Web framework
+bcryptjs: Password hashing
+jsonwebtoken: Authentication
+multer: File uploads
+
+4. Project Structure
+Ensure the project has the following structure:
+
+bash
+Copy code
+/my_project
+    /uploads         # Stores uploaded prescriptions
+    /public          # HTML, CSS, and static assets
+    server.js        # Node.js server file
+    package.json     # Project configuration
+5. Run the Server
+Start the Node.js server:
+
+bash
+Copy code
+node server.js
+You should see Server running on port 3000 in the terminal.
+
+6. Access the Application
+Open your browser and navigate to the following pages:
+
+Home Page: http://localhost:3000
+Login Page: http://localhost:3000/login.html
+Signup Page: http://localhost:3000/signup.html
+Dashboard: http://localhost:3000/dashboard.html (only accessible after login)
+7. User Registration and Login
+Sign Up: Go to /signup.html to create a new account.
+Login: Use your credentials at /login.html to log in.
+Access Dashboard: After logging in, you'll be redirected to the dashboard.
+8. Upload Prescriptions
+In the dashboard (/dashboard.html):
+
+Select a file using the Choose File button.
+Click Upload to upload the file. Uploaded files are saved in the /uploads folder.

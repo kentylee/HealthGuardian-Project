@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map | Health Guardian</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FAFAFA;
+        }
+        #map {
+            height: 85vh;
+            width: 100%;
+        }
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        }
+        .logo img {
+            height: 40px;
+        }
+        .nav-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #262626;
+            font-size: 16px;
+        }
+        .nav-links a:hover {
+            color: #8E8E8E;
+        }
+        .nav-links .active {
+            color: #3897f0;
+        }
+        .hospital-marker {
+            background-color: red;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
+        .popup-content {
+            font-size: 14px;
+            text-align: center;
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Images/website_logo.png" alt="Health Guardian Logo">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="pill.html">Reminders</a>
+            <a href="hospitals.html">Hospitals</a>
+        </div>
+    </nav>
+
+    <!-- Map Container -->
+    <div id="map"></div>
+
+    <!-- Map Script -->
+    <script>
+        // Initialize the map, center on Singapore
+        const map = L.map('map').setView([1.3521, 103.8198], 12);
+
+        // Load OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Hospital locations (with contact info)
+        const hospitals = [
+            {
+                name: "Ang Mo Kio Thye Hua Kwan Hospital",
+                location: [1.38396, 103.84020],
+                address: "17 Ang Mo Kio Ave 9, Singapore 569766",
+                phone: "+65 6453 8033",
+                email: "feedback@amkh.org.sg"
+            },
+            {
+                name: "Clementi Polyclinic",
+                location: [1.31275, 103.76580],
+                address: "Blk 451 Clementi Avenue 3, #02-307, Singapore 120451",
+                phone: "+65 6908 2222"
+            },
+            {
+                name: "Jurong Polyclinic",
+                location: [1.34974, 103.73072],
+                address: "190 Jurong East Avenue 1, Singapore 609788",
+                phone: "+65 6908 2222"
+            },
+            {
+                name: "Queenstown Polyclinic",
+                location: [1.29846, 103.80108],
+                address: "580 Stirling Road, Singapore 148958",
+                phone: "+65 6908 2222"
+            },
+            {
+                name: "Pioneer Polyclinic",
+                location: [1.33854, 103.69886],
+                address: "26 Jurong West Street 61, Singapore 648201",
+                phone: "+65 6908 2222"
+            },
+            {
+                name: "Bukit Batok Polyclinic",
+                location: [1.35200, 103.74774],
+                address: "50 Bukit Batok West Avenue 3, Singapore 659164",
+                phone: "+65 6908 2222"
+            },
+            {
+                name: "Bukit Panjang Polyclinic",
+                location: [1.38266, 103.76008],
+                address: "50 Woodlands Road, #03-02, Singapore 677726",
+                phone: "+65 6908 2222"
+            },
+            {
+                name: "Choa Chu Kang Polyclinic",
+                location: [1.38237, 103.75077],
+                address: "2 Teck Whye Crescent, Singapore 688846",
+                phone: "+65 6908 2222"
+            }
+        ];
+
+        // Custom icon for hospitals
+        const hospitalIcon = L.divIcon({
+            className: 'hospital-marker',
+            iconSize: [20, 20],
+            popupAnchor: [0, -10]
+        });
+
+        // Add hospital markers with popups including contact info
+        hospitals.forEach(hospital => {
+            L.marker(hospital.location, { icon: hospitalIcon })
+                .addTo(map)
+                .bindPopup(`
+                    <div class="popup-content">
+                        <strong>${hospital.name}</strong><br>
+                        ${hospital.address}<br>
+                        <strong>Phone:</strong> <a href="tel:${hospital.phone}">${hospital.phone}</a><br>
+                        ${hospital.email ? `<strong>Email:</strong> <a href="mailto:${hospital.email}">${hospital.email}</a>` : ''}
+                    </div>
+                `);
+        });
+
+        // Add geolocation to get the user's current location
+        map.locate({ setView: true, maxZoom: 16 });
+
+        function onLocationFound(e) {
+            // Add a marker for the user's location
+            L.marker(e.latlng).addTo(map)
+                .bindPopup('You are here').openPopup();
+        }
+
+        map.on('locationfound', onLocationFound);
+
+        function onLocationError(e) {
+            alert(e.message);
+        }
+
+        map.on('locationerror', onLocationError);
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        &copy; Health Guardian 2024
+    </footer>
+
+</body>
+</html>
